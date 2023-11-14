@@ -1,11 +1,10 @@
 {
   "/_error": "pages/_error.js",
-  "/api/meetups": "pages/api/meetups.js",
-  "/api/new-meetup": "pages/api/new-meetup.js",
-  "/[meetupId]": "pages/[meetupId].js",
   "/[meetupId]/indexMeetupDetails.cy": "pages/[meetupId]/indexMeetupDetails.cy.js",
-  "/_app": "pages/_app.js",
+  "/api/new-meetup": "pages/api/new-meetup.js",
   "/new-meetup": "pages/new-meetup.js",
+  "/_app": "pages/_app.js",
   "/": "pages/index.js",
+  "/[meetupId]": "pages/[meetupId].js",
   "/_document": "pages/_document.js"
 }
