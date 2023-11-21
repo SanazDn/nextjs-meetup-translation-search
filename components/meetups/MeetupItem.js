@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useTranslation } from 'next-i18next';
 
 import Card from "../ui/Card";
 import classes from "./MeetupItem.module.css";
@@ -20,6 +21,7 @@ import classes from "./MeetupItem.module.css";
 // background-color: #ffe2ed on hover and active states is represented by hover:bg-pink-100.
 
 function MeetupItem(props) {
+  const { t } = useTranslation('translation');
   const router = useRouter();
 
   function showDetailsHandler() {
@@ -45,9 +47,9 @@ function MeetupItem(props) {
 
 
         <div>
-          <h3 className="text-center md:mb-2 m-0 p-1">{props.title}</h3>
+          <h3 className="text-center md:mb-2 m-0 p-1">{t(props.title)}</h3>
           <address className=" text-gray-700 text-center md:mb-4 text-base md:text-sm sm:text-xxs">
-            {props.address}
+          {t(props.address)}
           </address>
         </div>
         <div className="actions p-6 text-center flex justify-center items-center px-4 py-3 sm:px-2 sm:py-1">
@@ -56,7 +58,7 @@ function MeetupItem(props) {
               className="mb-2 md:w-40 sm:w-0 md:h-8 sm:h-5 font-inherit cursor-pointer text-pink-700 text-base md:text-sm  sm:text-sm border border-pink-700 bg-transparent px-2 py-1 rounded-md sm:px-0 sm:py-0 hover:bg-pink-200 "
               onClick={showDetailsHandler}
             >
-              Show Details
+              {t('Show Details')}
             </button>
 
             {/* <button className="text-base md:text-2xl sm:text-sm" onClick={showDetailsHandler}>Show Details</button> */}

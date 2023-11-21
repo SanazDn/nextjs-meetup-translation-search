@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+//import Meetup from '../../models/meetup';
 
 // /api/new-meetup
 // POST /api/new-meetup
@@ -6,6 +7,15 @@ import { MongoClient } from 'mongodb';
 async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body;
+    const language = data.language || 'en'; // Get language from the submitted data
+
+    // Validate the data against the schema
+    //const validatedData = Meetup.validate(data);
+    
+    // if (validatedData.error) {
+    //   res.status(400).json({ message: 'Invalid data format' });
+    //   return;
+    // }
 
     const client = await MongoClient.connect(
       //'mongodb+srv://maximilian:arlAapzPqFyo4xUk@cluster0.ntrwp.mongodb.net/meetups?retryWrites=true&w=majority'
@@ -16,7 +26,10 @@ async function handler(req, res) {
 
     const meetupsCollection = db.collection('meetups');
 
-    const result = await meetupsCollection.insertOne(data);
+    // Include language when saving the meetup data
+    const meetupDataWithLanguage = { ...data};
+
+    const result = await meetupsCollection.insertOne(meetupDataWithLanguage);
 
     console.log(result);
 

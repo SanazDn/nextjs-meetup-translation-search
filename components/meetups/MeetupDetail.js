@@ -1,7 +1,9 @@
 import classes from "./MeetupDetail.module.css";
 import Card from "../ui/Card";
+import { useTranslation } from 'next-i18next';
 
 function MeetupDetail(props) {
+  const { t } = useTranslation('translation');
   return (
     <Card>
       <section className={classes.detail}>

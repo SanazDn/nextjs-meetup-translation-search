@@ -3,10 +3,12 @@ import { useRouter } from 'next/router';
 import { Fragment } from 'react'; 
 import Head from 'next/head';
 
+
 import NewMeetupForm from '../../components/meetups/NewMeetupForm';
 
 function NewMeetupPage() {
   const router = useRouter();
+  //const language = router.query.lang || 'en'; // Get language from query parameter
 
   async function addMeetupHandler(enteredMeetupData) {
     const response = await fetch('/api/new-meetup', {
@@ -33,7 +35,7 @@ function NewMeetupPage() {
       content='Add your own meetups and create amazing networking opportunities.'
     />
   </Head>
-  <NewMeetupForm onAddMeetup={addMeetupHandler} />
+  <NewMeetupForm onAddMeetup={addMeetupHandler}  />
 </Fragment>
   );
 }

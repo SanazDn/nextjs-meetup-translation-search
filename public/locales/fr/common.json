@@ -1,0 +1,27 @@
+{
+    "hello": "Bonjour",
+    "welcome": "Bienvenue",
+    "Show": "montrer",
+    "Details": "détails",
+    "Show Details": "Montrer Détails",
+    "All Meetups":"Tous les meetups",
+    "Add New Meetup": "Ajouter un nouveau meetup",
+    "React Meetups": "Rencontres React",
+    "React": "React",
+    "Meetups": "Rencontres",
+    "Richmond Hill meeting": "Richmond Hill meeting Réunion",
+    "Hello":"Bonjour",
+    "Meetup Title":"Titre du Meetup",
+    "Meetup Image":"Image du rendez-vous",
+    "Address": "Adresse",
+    "Add Meetup":"Ajouter une rencontre",
+    "professional":"professionnelle",
+    "Professional Networking Meetups": "Rencontres de réseautage professionnel",
+    "tech":"technologie",
+    "developer": "développeuse",
+    "Tech and Developer Meetups": "Rencontres entre techniciens et développeurs",
+    "Language Exchange Meetups": "Rencontres d'échange linguistique",
+    "Art and Creative Meetups": "Rencontres artistiques et créatives"
+
+  }
+  

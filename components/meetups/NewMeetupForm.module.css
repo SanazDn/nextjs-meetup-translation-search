@@ -43,3 +43,24 @@
   background-color: #a50e48;
   border-color: #a50e48;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  /* Styles for screens with a width up to 768px (adjust as needed) */
+
+  .form {
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+    font-size: 0.6rem; /* Adjust font size for smaller screens */
+  }
+
+  .control input,
+  .control textarea {
+    padding: 0.15rem; /* Adjust padding for smaller screens */
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+
+  .actions button {
+    padding: 0.4rem 1rem; /* Adjust padding for smaller screens */
+    font-size: 0.6rem; /* Adjust font size for smaller screens */
+  }
+}
