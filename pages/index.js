@@ -1,15 +1,28 @@
 import { MongoClient } from 'mongodb';
 import { Fragment } from 'react';
 import Head from 'next/head';
-import { useTranslation } from 'next-i18next';
-
 import MeetupList from '../components/meetups/MeetupList';
-//import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useState } from 'react';
+import SearchBar from '../components/SearchBar';
 
-import i18n from '../i18n'; // Import your i18n instance
 
-function HomePage(props) {
-  const { t } = useTranslation('translation');
+function HomePage({ meetups }) {
+
+  // Initialize filteredMeetups with all meetups initially
+  const [filteredMeetups, setFilteredMeetups] = useState(meetups);
+
+  const handleSearch = (searchTerm) => {
+    const results = meetups.filter((meetup) => {
+      // Check if the search term is present in any field (title, address, description, etc.)
+      return Object.values(meetup).some((field) =>
+        String(field).toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+ 
+    setFilteredMeetups(results);
+  };
+
+
   return ( 
   <Fragment>
   <Head>
@@ -19,37 +32,18 @@ function HomePage(props) {
       content='Browse a huge list of highly active React meetups!'
     />
   </Head>
-  <MeetupList meetups={props.meetups} />
+
+  {/* Add the SearchBar component */}
+  <SearchBar onSearch={handleSearch} />
+
+{/* Display the filtered meetups */}
+  <MeetupList meetups={filteredMeetups} className="m-10"/>
+
+  {/* <MeetupList meetups={props.meetups} /> */}
 </Fragment>
 );
 }
 
-
-// export async function getStaticProps() {
-//   // fetch data from an API
-//   const client = await MongoClient.connect(
-//     'mongodb+srv://sanaz142:Alast822@cluster0.pjwpe7q.mongodb.net/meetups?retryWrites=true&w=majority'
-//   );
-//   const db = client.db();
-
-//   const meetupsCollection = db.collection('meetups');
-
-//   const meetups = await meetupsCollection.find().toArray();
-
-//   client.close();
-
-//   return {
-//     props: {
-//       meetups: meetups.map((meetup) => ({
-//         title: meetup.title,
-//         address: meetup.address,
-//         image: meetup.image,
-//         id: meetup._id.toString(),
-//       })),
-//     },
-//     revalidate: 1,
-//   };
-// }
 
 export async function getServerSideProps(context) {
   // Fetch data from an API
@@ -63,21 +57,10 @@ export async function getServerSideProps(context) {
 
   // Default language if not specified in the document
     const defaultLanguage = 'en';
-  
-
-  // Include language in the props, using the default if not specified
-  // const meetupsWithLanguage = meetups.map((meetup) => ({
-  //   title: meetup.title,
-  //   address: meetup.address,
-  //   image: meetup.image,
-  //   id: meetup._id.toString(),
-  //   language: meetup.language || defaultLanguage,
-    
-  // }));
 
   const meetupsWithLanguage = meetups.map((meetup) => {
     const language = meetup.language || defaultLanguage;
-    console.log("app language", language); // Log the language for each meetup
+    
   
     return {
       title: meetup.title,

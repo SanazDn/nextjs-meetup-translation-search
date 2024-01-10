@@ -35,3 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # Nextjs-meetup
 # Nextjs-meetup-responsiveDesighn-cypressTest
 # Nextjs-meetup-translation-
+# nextjs-meetup-translation-search
