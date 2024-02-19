@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar';
 function HomePage({ meetups }) {
   // this is index page test 24
 
-  // Initialize filteredMeetups with all meetups initially
+  // Initialize filteredMeetups with all meetups initially test 24
   const [filteredMeetups, setFilteredMeetups] = useState(meetups);
 
   const [filteredMeetup, setFilteredMeetup] = useState(meetups);
