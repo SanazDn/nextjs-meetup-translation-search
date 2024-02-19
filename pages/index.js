@@ -5,11 +5,13 @@ import MeetupList from '../components/meetups/MeetupList';
 import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 
-
+// this is index page
 function HomePage({ meetups }) {
 
   // Initialize filteredMeetups with all meetups initially
   const [filteredMeetups, setFilteredMeetups] = useState(meetups);
+
+  const [filteredMeetup, setFilteredMeetup] = useState(meetups);
 
   const handleSearch = (searchTerm) => {
     const results = meetups.filter((meetup) => {
